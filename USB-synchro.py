@@ -20,14 +20,19 @@ for item in c.query(wql):
 #SERIAL NUMBER is included in PNPDeviceID
 #☺print("*" * 50, "N° SERIE")
 
-DevicesId = os.popen('wmic diskdrive get SerialNumber ').read()
 USB2 = "0415060924000134"
-USB1 = "1710162ADB5F"
-for Snfinder in DevicesId:
+USB1 = "045FF1106101356315932123"
+def Usbfinder():
     if USB1 in DevicesId:
         print("USB1 by SN: {} is connected". format(USB1))
+    else:
+        print("USB1 by SN: {} is NOT connected". format(USB1))
     if USB2 in DevicesId:
         print("USB2 by SN: {} is connected". format(USB2))
-    break
+    else:
+        print("USB2 by SN: {} is NOT connected". format(USB2))
+
+Usbfinder()
+
 
 
